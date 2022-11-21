@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Message from "../components/message";
 import { useEffect, useState } from "react";
 import { db } from "../utils/firebase";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
@@ -30,6 +31,9 @@ export default function Home() {
 
       <div className="my-12 text-lg font-medium">
         <h2>See what other people are saying</h2>
+        {allPosts.map((post) => (
+          <Message key={post.id} {...post}></Message>
+        ))}
       </div>
     </div>
   );
