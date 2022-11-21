@@ -37,13 +37,6 @@ export default function Nav() {
                   alt=""
                 />
               )}
-              {!user.photoURL && (
-                <img
-                  className="w-12 rounded-full cursor-pointer"
-                  src={`https://ui-avatars.com/api/?name=${user.displayName}`}
-                  alt=""
-                />
-              )}
             </Link>
           </div>
         )}
