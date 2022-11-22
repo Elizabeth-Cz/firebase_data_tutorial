@@ -1,10 +1,6 @@
 import Link from "next/link";
-import { use } from "react";
-import {
-  useAuthState,
-  useSendEmailVerification,
-} from "react-firebase-hooks/auth";
 import { auth } from "../utils/firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export default function Nav() {
   const [user, loading] = useAuthState(auth);
@@ -29,14 +25,11 @@ export default function Nav() {
                 Post
               </button>
             </Link>
-            <Link href={"/dashboard"}>
-              {user.photoURL && (
-                <img
-                  className="w-12 rounded-full cursor-pointer"
-                  src={user.photoURL}
-                  alt=""
-                />
-              )}
+            <Link href="/dashboard">
+              <img
+                className="w-10 rounded-full cursor-pointer"
+                src={user.photoURL}
+              />
             </Link>
           </div>
         )}

@@ -52,6 +52,10 @@ export default function Post() {
         userName: user.displayName,
       });
       setPost({ description: "" });
+      toast.success("Post has been made! 🚀", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
       return route.push("/");
     }
   };
@@ -94,7 +98,7 @@ export default function Post() {
           type="submit"
           className="w-full bg-cyan-600 text-white font-medium p-2 my-2 rounded-lg text-sm"
         >
-          Submit
+          {post.hasOwnProperty("id") ? "Update" : "Submit"}
         </button>
       </form>
     </div>
